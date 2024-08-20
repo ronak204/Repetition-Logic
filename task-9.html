@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="integ"></h2>
+    <script>
+        let total = 0;
+        let number = 0;
+
+        do {
+            total += number;
+            number++;
+        } while (number <= 30);
+
+        document.getElementById("integ").innerHTML=("The total sum of integers between 0 and 30 is:", total);
+    </script>
+</body>
+</html>

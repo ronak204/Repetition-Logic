@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Palindrome Numbers</title>
+</head>
+<body>
+    <h1>Palindrome Numbers</h1>
+    <p id="result"></p>
+
+    <script>
+
+        function isPalindrome(num) {
+            var originalNum = num;
+            var reversedNum = 0;
+
+            while (num > 0) {
+                var digit = num % 10;
+                reversedNum = (reversedNum * 10) + digit;
+                num = Math.floor(num / 10);
+            }
+
+            return originalNum === reversedNum;
+        }
+
+        function findPalindromeNumbers() {
+            var limit = prompt("Enter a positive integer:");
+            limit = parseInt(limit);    
+
+            if (isNaN(limit) || limit <= 0) {
+                alert("Please enter a valid positive integer.");
+                return;
+            }
+
+            var result = '';
+            var num = 1;
+
+            while (num <= limit) {
+                if (isPalindrome(num)) {
+                    result += num + " ";
+                }
+                num++;
+            }
+
+            document.getElementById('result').innerHTML = "Palindrome numbers up to " + limit + ": " + result;
+        }
+        findPalindromeNumbers();
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prime Numbers</title>
+</head>
+<body>
+    <h1>Prime Numbers</h1>
+    <p id="result"></p>
+
+    <script>
+        function isPrime(num) {
+            if (num <= 1) {
+                return false;
+            }
+            var i = 2;
+            while (i <= Math.sqrt(num)) {
+                if (num % i === 0) {
+                    return false;
+                }
+                i++;
+            }
+            return true;
+        }
+
+        function findPrimeNumbers() {
+            var limit = prompt("Enter a positive integer:");
+            limit = parseInt(limit);
+
+            if (isNaN(limit) || limit <= 0) {
+                alert("Please enter a valid positive integer.");
+                return;
+            }
+
+            var result = '';
+            var num = 2; 
+
+            while (num <= limit) {
+                if (isPrime(num)) {
+                    result += num + " ";
+                }
+                num++;
+            }
+
+            document.getElementById('result').innerHTML = "Prime numbers up to " + limit + ": " + result;
+        }
+        findPrimeNumbers();
+    </script>
+</body>
+</html>

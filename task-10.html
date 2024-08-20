@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="fi1"></h2>
+    <h3 id="fi2"></h3>
+    <h4 id="fi3"></h4>
+    <h5 id="fi4"></h5>
+    <script>
+        let number = 1;
+
+        do {
+            if (number % 3 === 0 && number % 5 === 0) {
+                document.getElementById("fi1").innerHTML=("FizzBuzz");
+            } else if (number % 3 === 0) {
+                document.getElementById("fi2").innerHTML=("Fizz");
+            } else if (number % 5 === 0) {
+                document.getElementById("fi3").innerHTML=("Buzz");
+            } else {
+                document.getElementById("fi4").innerHTML=(number);
+            }
+            number++;
+            } while (number <= 100);
+    </script>
+</body>
+</html>

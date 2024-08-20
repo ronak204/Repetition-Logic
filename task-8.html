@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="num"></h2>
+
+    <script>
+        function isDisarium(num) {
+    let sum = 0;
+    let temp = num;
+    let length = num.toString().length;
+
+    while (temp > 0) {
+        let digit = temp % 10;
+        sum += Math.pow(digit, length);
+        temp = Math.floor(temp / 10);
+        length--;
+    }
+
+    return sum === num;
+}
+
+function findDisariumNumbers(limit) {
+    let number = 1;
+    let disariumNumbers = [];
+
+    while (number <= limit) {
+        if (isDisarium(number)) {
+            disariumNumbers.push(number);
+        }
+        number++;
+    }
+
+    return disariumNumbers;
+}
+
+let limit = 500;  // Change this limit to find Disarium numbers up to a different number
+let disariumList = findDisariumNumbers(limit);
+
+document.getElementById("num").innerHTML=(`Disarium numbers up to ${limit} are:`, disariumList);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Magic Numbers</title>
+</head>
+<body>
+    <h1>Magic Numbers</h1>
+    <p id="result"></p>
+
+    <script>
+        function isMagicNumber(num) {
+            while (num > 9) {
+                let sum = 0;
+                while (num > 0) {
+                    sum += Math.pow(num % 10, 2);
+                    num = Math.floor(num / 10);
+                }
+                num = sum;
+            }
+            return num === 1;
+        }
+        function findMagicNumbers() {
+            let limit = prompt("Enter a positive integer:");
+            limit = parseInt(limit);
+
+            if (isNaN(limit) || limit <= 0) {
+                alert("Please enter a valid positive integer.");
+                return;
+            }
+
+            let result = '';
+            let num = 1;
+
+            while (num <= limit) {
+                if (isMagicNumber(num)) {
+                    result += num + " ";
+                }
+                num++;
+            }
+
+            document.getElementById('result').innerHTML = "Magic numbers up to " + limit + ": " + result;
+        }
+
+        findMagicNumbers();
+
+    </script>
+</body>
+</html>

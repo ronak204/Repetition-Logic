@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Armstrong Numbers</title>
+</head>
+<body>
+    <h1>Armstrong Numbers</h1>
+    <p id="result"></p>
+
+    <script>
+        function isArmstrongNumber(num) {
+            var sum = 0;
+            var temp = num;
+            var numberOfDigits = num.toString().length;
+
+            while (temp > 0) {
+                var digit = temp % 10;
+                sum += Math.pow(digit, numberOfDigits);
+                temp = Math.floor(temp / 10);
+            }
+
+            return sum === num;
+        }
+        function findArmstrongNumbers() {
+            var limit = prompt("Enter a positive integer:");
+            limit = parseInt(limit);
+
+            if (isNaN(limit) || limit <= 0) {
+                alert("Please enter a valid positive integer.");
+                return;
+            }
+
+            var result = '';
+            var num = 1;
+
+            while (num <= limit) {
+                if (isArmstrongNumber(num)) {
+                    result += num + " ";
+                }
+                num++;
+            }
+
+            document.getElementById('result').innerHTML = "Armstrong numbers up to " + limit + ": " + result;
+        }
+
+        findArmstrongNumbers();
+    </script>
+</body>
+</html>
